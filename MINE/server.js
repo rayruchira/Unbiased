@@ -15,9 +15,9 @@ app.get("/auth_config.json", (req, res) => {
 app.get("/", (_, res) => {
   res.sendFile(join(__dirname, "index.html"));
 });
-/*app.get("/register", (_, res) => {
+app.get("/register", (_, res) => {
   res.sendFile(join(__dirname, "register.html"));
-});*/
+});
 process.on("SIGINT", function() {
   process.exit();
 });
