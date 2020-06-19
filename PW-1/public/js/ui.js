@@ -3,14 +3,12 @@ const router = {
   "/": () => showContent("content-home"),
   "/profile": () =>
     requireAuth(() => showContent("content-profile"), "/profile"),
-  "/login": () => login()
+  "/login": () => login(),
+  "/register": () =>
+    requireAuth(() => showContent("content-register"), "/register") 
 };
 
-var options = {
-  theme: {
-    primaryColor: '#31324F'
-  }
-};
+
 //Declare helper functions
 
 /**
@@ -75,7 +73,7 @@ const updateUI = async () => {
       );
 
       document.querySelectorAll("pre code").forEach(hljs.highlightBlock);
-
+      
       eachElement(".profile-image", (e) => (e.src = user.picture));
       eachElement(".user-name", (e) => (e.innerText = user.name));
       eachElement(".user-email", (e) => (e.innerText = user.email));
